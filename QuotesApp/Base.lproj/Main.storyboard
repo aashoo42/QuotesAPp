@@ -30,18 +30,24 @@
                                                     <constraint firstAttribute="width" secondItem="JzK-Oi-LGv" secondAttribute="height" multiplier="1:1" id="LIC-Jf-8Pv"/>
                                                 </constraints>
                                                 <state key="normal" image="options_home"/>
+                                                <connections>
+                                                    <action selector="optionsAction:" destination="xip-FE-5r5" eventType="touchUpInside" id="deJ-JO-Qf0"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="vuS-w4-oLv">
                                                 <rect key="frame" x="10" y="12" width="20" height="20"/>
                                             </imageView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eXP-gX-rqg">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eXP-gX-rqg">
                                                 <rect key="frame" x="40" y="0.0" width="196" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="eXP-gX-rqg" secondAttribute="height" multiplier="49:11" id="FFE-cc-hWS"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="xip-FE-5r5" id="VCb-6T-KFE"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -143,6 +149,28 @@
                                             <outlet property="delegate" destination="xip-FE-5r5" id="STM-eH-G4V"/>
                                         </connections>
                                     </collectionView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IFz-zw-Js3">
+                                        <rect key="frame" x="215" y="64" width="150" height="200"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K59-yw-lPH">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="xip-FE-5r5" id="rlX-9g-18R"/>
+                                                    <outlet property="delegate" destination="xip-FE-5r5" id="5ZU-je-D1Z"/>
+                                                </connections>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="K59-yw-lPH" secondAttribute="trailing" id="DHA-rM-nH8"/>
+                                            <constraint firstItem="K59-yw-lPH" firstAttribute="top" secondItem="IFz-zw-Js3" secondAttribute="top" id="E8S-1J-z9F"/>
+                                            <constraint firstItem="K59-yw-lPH" firstAttribute="leading" secondItem="IFz-zw-Js3" secondAttribute="leading" id="HLV-aJ-r9R"/>
+                                            <constraint firstAttribute="width" secondItem="IFz-zw-Js3" secondAttribute="height" multiplier="3:4" id="yLd-kX-P6o"/>
+                                            <constraint firstAttribute="bottom" secondItem="K59-yw-lPH" secondAttribute="bottom" id="zOI-Vb-TGB"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WQm-8b-et2" customClass="GADBannerView">
                                         <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -160,8 +188,11 @@
                                     <constraint firstItem="wrV-bG-k6z" firstAttribute="leading" secondItem="jsn-Ih-O0w" secondAttribute="leading" id="Iai-LY-l42"/>
                                     <constraint firstAttribute="trailing" secondItem="WQm-8b-et2" secondAttribute="trailing" id="JHb-kW-eB6"/>
                                     <constraint firstItem="WQm-8b-et2" firstAttribute="leading" secondItem="jsn-Ih-O0w" secondAttribute="leading" id="RRP-M0-fL6"/>
+                                    <constraint firstAttribute="trailing" secondItem="IFz-zw-Js3" secondAttribute="trailing" constant="10" id="UqL-kO-TOo"/>
+                                    <constraint firstItem="IFz-zw-Js3" firstAttribute="width" secondItem="jsn-Ih-O0w" secondAttribute="height" multiplier="150:667" id="Z2X-WF-Mu2"/>
                                     <constraint firstAttribute="trailing" secondItem="wrV-bG-k6z" secondAttribute="trailing" id="fFn-Be-oS6"/>
                                     <constraint firstAttribute="bottom" secondItem="jLu-Jd-OEW" secondAttribute="bottom" id="fL8-qE-KBb"/>
+                                    <constraint firstItem="IFz-zw-Js3" firstAttribute="top" secondItem="wrV-bG-k6z" secondAttribute="bottom" id="xoK-8q-GQN"/>
                                     <constraint firstItem="wrV-bG-k6z" firstAttribute="top" secondItem="jsn-Ih-O0w" secondAttribute="top" constant="20" id="zU2-xc-1rj"/>
                                 </constraints>
                             </view>
@@ -180,6 +211,8 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="bannerView" destination="WQm-8b-et2" id="7Bo-iZ-nMC"/>
+                        <outlet property="optionsTableView" destination="K59-yw-lPH" id="UKf-0k-kSw"/>
+                        <outlet property="optionsView" destination="IFz-zw-Js3" id="zJE-2H-EIq"/>
                         <outlet property="quoteCollectionView" destination="jLu-Jd-OEW" id="PP2-ij-XR4"/>
                     </connections>
                 </viewController>
