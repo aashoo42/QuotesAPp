@@ -14,9 +14,9 @@
 		6D0E33DF230049560072698C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D0E33DD230049560072698C /* LaunchScreen.storyboard */; };
 		6D0E33E7230049FB0072698C /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0E33E6230049FB0072698C /* ListCell.swift */; };
 		6D0E33E923004B780072698C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D0E33E823004B780072698C /* GoogleService-Info.plist */; };
+		6D6DA93C235A225E0060ABDD /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6DA93B235A225E0060ABDD /* CategoryCell.swift */; };
 		6D89ECA2232B5A73005BD1C6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D89ECA1232B5A73005BD1C6 /* AVFoundation.framework */; };
 		6DC97D682307CA0800094A8A /* FirstController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC97D672307CA0800094A8A /* FirstController.swift */; };
-		6DC97D6C2307CA4C00094A8A /* FirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC97D6B2307CA4C00094A8A /* FirstCell.swift */; };
 		6DFDA6D2230084E4004DD4A0 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFDA6D1230084E4004DD4A0 /* DetailsVC.swift */; };
 		7F9DA3ACB633A61A997833B6 /* Pods_QuotesApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D695CD65CDDF823CAE1208F /* Pods_QuotesApp.framework */; };
 /* End PBXBuildFile section */
@@ -32,9 +32,9 @@
 		6D0E33E6230049FB0072698C /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		6D0E33E823004B780072698C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6D695CD65CDDF823CAE1208F /* Pods_QuotesApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuotesApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D6DA93B235A225E0060ABDD /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		6D89ECA1232B5A73005BD1C6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6DC97D672307CA0800094A8A /* FirstController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstController.swift; sourceTree = "<group>"; };
-		6DC97D6B2307CA4C00094A8A /* FirstCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCell.swift; sourceTree = "<group>"; };
 		6DFDA6D1230084E4004DD4A0 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		A3CB01A36DB51EC24287FB95 /* Pods-QuotesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuotesApp.debug.xcconfig"; path = "Target Support Files/Pods-QuotesApp/Pods-QuotesApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CB18BACC44713A64125BE227 /* Pods-QuotesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuotesApp.release.xcconfig"; path = "Target Support Files/Pods-QuotesApp/Pods-QuotesApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 			children = (
 				6D0E33D4230049540072698C /* AppDelegate.swift */,
 				6DC97D672307CA0800094A8A /* FirstController.swift */,
-				6DC97D6B2307CA4C00094A8A /* FirstCell.swift */,
+				6D6DA93B235A225E0060ABDD /* CategoryCell.swift */,
 				6D0E33D6230049540072698C /* ListContoller.swift */,
 				6D0E33E6230049FB0072698C /* ListCell.swift */,
 				6DFDA6D1230084E4004DD4A0 /* DetailsVC.swift */,
@@ -225,10 +225,10 @@
 			files = (
 				6D0E33E7230049FB0072698C /* ListCell.swift in Sources */,
 				6DFDA6D2230084E4004DD4A0 /* DetailsVC.swift in Sources */,
-				6DC97D6C2307CA4C00094A8A /* FirstCell.swift in Sources */,
 				6DC97D682307CA0800094A8A /* FirstController.swift in Sources */,
 				6D0E33D7230049540072698C /* ListContoller.swift in Sources */,
 				6D0E33D5230049540072698C /* AppDelegate.swift in Sources */,
+				6D6DA93C235A225E0060ABDD /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,17 +375,18 @@
 			baseConfigurationReference = A3CB01A36DB51EC24287FB95 /* Pods-QuotesApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 2SYHEEFR28;
+				DEVELOPMENT_TEAM = 89ZACUA52S;
 				INFOPLIST_FILE = QuotesApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.absoluit.umiRides;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aashoo.QuotesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Umi_Dev;
+				PROVISIONING_PROFILE_SPECIFIER = Quotes_AppStore;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -398,15 +399,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 2SYHEEFR28;
+				DEVELOPMENT_TEAM = 89ZACUA52S;
 				INFOPLIST_FILE = QuotesApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.absoluit.umiRides;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aashoo.QuotesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Umi_AppStore;
+				PROVISIONING_PROFILE_SPECIFIER = Quotes_AppStore;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

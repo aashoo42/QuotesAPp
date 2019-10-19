@@ -7,13 +7,18 @@ target 'QuotesApp' do
 
   # Pods for QuotesApp
 
-pod 'Firebase'
-pod 'Firebase/Core'
-pod 'Firebase/Database'
+#pod 'Firebase'
+#pod 'Firebase/Core'
+#pod 'Firebase/Database'
 
-pod 'FBSDKCoreKit'
-pod 'FBSDKLoginKit'
-pod 'FBSDKShareKit'
+#pod 'FBSDKCoreKit'
+#pod 'FBSDKLoginKit'
+#pod 'FBSDKShareKit'
 
 pod 'Google-Mobile-Ads-SDK'
+
+pod 'Alamofire'
+pod 'AlamofireImage'
+#pod 'FontAwesome'
+
 end
