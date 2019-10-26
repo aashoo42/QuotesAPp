@@ -32,6 +32,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    
+    // MARK:-
+    func checkNullValues(tempDict: NSDictionary) -> NSDictionary{
+        let authorValue = tempDict["Author"] as? String ?? ""
+        let categoryIdValue = tempDict["CategoryId"] as? Int ?? -1
+        let categoryNameValue = tempDict["CategoryName"] as? String ?? ""
+        let descriptionValue = tempDict["Description"] as? String ?? ""
+        let idValue = tempDict["Id"] as? Int ?? -1
+        let imageValue = tempDict["Image"] as? String ?? ""
+        
+        let dictToReturn = NSDictionary.init(dictionary: ["Author": authorValue,
+                                                          "CategoryId": categoryIdValue,
+                                                          "CategoryName": categoryNameValue,
+                                                          "Description": descriptionValue,
+                                                          "Id": idValue,
+                                                          "Image":imageValue])
+        return dictToReturn
+    }
 }
 
 

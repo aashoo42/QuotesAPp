@@ -238,7 +238,7 @@
                                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DhP-dJ-E2z">
-                                                <rect key="frame" x="20" y="0.0" width="16" height="44"/>
+                                                <rect key="frame" x="20" y="0.0" width="33.5" height="44"/>
                                                 <state key="normal" image="white_back"/>
                                                 <connections>
                                                     <action selector="backAction:" destination="0Tl-nV-ANR" eventType="touchUpInside" id="0eb-p7-Adm"/>
@@ -263,7 +263,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AEV-No-IzS">
-                                        <rect key="frame" x="20" y="64" width="335" height="603"/>
+                                        <rect key="frame" x="20" y="64" width="335" height="543"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavCell" rowHeight="350" id="7I2-R4-Q3A" customClass="FavCell" customModule="QuotesApp" customModuleProvider="target">
@@ -428,8 +428,8 @@
                                     <constraint firstAttribute="trailing" secondItem="tMa-1I-sH4" secondAttribute="trailing" id="aNq-LT-tIC"/>
                                     <constraint firstItem="AEV-No-IzS" firstAttribute="top" secondItem="QbF-po-nSM" secondAttribute="bottom" id="aiO-zi-e7y"/>
                                     <constraint firstItem="tMa-1I-sH4" firstAttribute="leading" secondItem="3zE-eW-K4O" secondAttribute="leading" id="avl-xd-Zxx"/>
+                                    <constraint firstItem="tMa-1I-sH4" firstAttribute="top" secondItem="AEV-No-IzS" secondAttribute="bottom" id="fgZ-8x-ebb"/>
                                     <constraint firstItem="AEV-No-IzS" firstAttribute="leading" secondItem="3zE-eW-K4O" secondAttribute="leading" constant="20" id="iy8-Pa-AEz"/>
-                                    <constraint firstAttribute="bottom" secondItem="AEV-No-IzS" secondAttribute="bottom" id="p1p-5p-Sfm"/>
                                     <constraint firstAttribute="trailing" secondItem="AEV-No-IzS" secondAttribute="trailing" constant="20" id="pCq-0L-bQ9"/>
                                 </constraints>
                             </view>
@@ -449,6 +449,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
+                        <outlet property="bannerView" destination="tMa-1I-sH4" id="2mG-JK-GTi"/>
                         <outlet property="favQuotesTableView" destination="AEV-No-IzS" id="i9T-O5-jr7"/>
                     </connections>
                 </viewController>
@@ -510,7 +511,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cDM-QC-rIs">
-                                        <rect key="frame" x="20" y="64" width="335" height="603"/>
+                                        <rect key="frame" x="20" y="64" width="335" height="543"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListCell" rowHeight="350" id="ZyW-ft-H5r" customClass="ListCell" customModule="QuotesApp" customModuleProvider="target">
@@ -668,11 +669,11 @@
                                     <constraint firstAttribute="trailing" secondItem="KHq-4q-E3T" secondAttribute="trailing" id="2Yb-Kt-hcV"/>
                                     <constraint firstItem="KHq-4q-E3T" firstAttribute="top" secondItem="zZE-Ce-qSa" secondAttribute="top" constant="20" id="Rdc-qE-4mp"/>
                                     <constraint firstAttribute="bottom" secondItem="8ZM-kv-wBA" secondAttribute="bottom" id="UpE-eT-rDF"/>
+                                    <constraint firstItem="8ZM-kv-wBA" firstAttribute="top" secondItem="cDM-QC-rIs" secondAttribute="bottom" id="XXO-CJ-XGv"/>
                                     <constraint firstAttribute="trailing" secondItem="cDM-QC-rIs" secondAttribute="trailing" constant="20" id="Ztb-ey-wTw"/>
                                     <constraint firstItem="cDM-QC-rIs" firstAttribute="top" secondItem="KHq-4q-E3T" secondAttribute="bottom" id="as5-Mh-so9"/>
                                     <constraint firstItem="8ZM-kv-wBA" firstAttribute="leading" secondItem="zZE-Ce-qSa" secondAttribute="leading" id="bzW-bg-23f"/>
                                     <constraint firstItem="cDM-QC-rIs" firstAttribute="leading" secondItem="zZE-Ce-qSa" secondAttribute="leading" constant="20" id="dod-bf-0XQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="cDM-QC-rIs" secondAttribute="bottom" id="etF-cw-yyB"/>
                                     <constraint firstItem="KHq-4q-E3T" firstAttribute="leading" secondItem="zZE-Ce-qSa" secondAttribute="leading" id="iGa-f1-Joz"/>
                                     <constraint firstAttribute="trailing" secondItem="8ZM-kv-wBA" secondAttribute="trailing" id="q2b-K9-SxI"/>
                                 </constraints>
@@ -890,7 +891,7 @@
                                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q39-0t-DlI">
-                                                <rect key="frame" x="20" y="0.0" width="16" height="44"/>
+                                                <rect key="frame" x="20" y="0.0" width="33.5" height="44"/>
                                                 <state key="normal" image="white_back"/>
                                                 <connections>
                                                     <action selector="backAction:" destination="ZWD-Nb-uwD" eventType="touchUpInside" id="lAq-6h-KX6"/>
@@ -902,12 +903,22 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQF-ql-ys8">
+                                                <rect key="frame" x="321" y="0.0" width="34" height="44"/>
+                                                <state key="normal" image="refresh"/>
+                                                <connections>
+                                                    <action selector="refreshAction:" destination="ZWD-Nb-uwD" eventType="touchUpInside" id="L6v-1T-vSC"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="PQF-ql-ys8" secondAttribute="bottom" id="2H0-pm-Yoe"/>
                                             <constraint firstAttribute="bottom" secondItem="Kte-PF-8tr" secondAttribute="bottom" id="2aw-ba-zmD"/>
+                                            <constraint firstItem="PQF-ql-ys8" firstAttribute="top" secondItem="ubA-vZ-kja" secondAttribute="top" id="6cM-3V-Wgn"/>
                                             <constraint firstItem="Kte-PF-8tr" firstAttribute="centerX" secondItem="ubA-vZ-kja" secondAttribute="centerX" id="Hum-KV-uZg"/>
                                             <constraint firstItem="Q39-0t-DlI" firstAttribute="leading" secondItem="ubA-vZ-kja" secondAttribute="leading" constant="20" id="IpO-qe-sd2"/>
+                                            <constraint firstAttribute="trailing" secondItem="PQF-ql-ys8" secondAttribute="trailing" constant="20" id="YTx-x1-vcW"/>
                                             <constraint firstAttribute="width" secondItem="ubA-vZ-kja" secondAttribute="height" multiplier="375:44" id="jf9-P1-DkE"/>
                                             <constraint firstItem="Q39-0t-DlI" firstAttribute="top" secondItem="ubA-vZ-kja" secondAttribute="top" id="pMK-F9-aT2"/>
                                             <constraint firstAttribute="bottom" secondItem="Q39-0t-DlI" secondAttribute="bottom" id="ynT-Js-bfi"/>
@@ -915,7 +926,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uib-U3-wr4">
-                                        <rect key="frame" x="20" y="64" width="335" height="603"/>
+                                        <rect key="frame" x="20" y="64" width="335" height="543"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RandomCell" rowHeight="350" id="1dv-ql-8NB" customClass="RandomCell" customModule="QuotesApp" customModuleProvider="target">
@@ -1067,19 +1078,19 @@
                                             <constraint firstAttribute="width" secondItem="baQ-tR-h6K" secondAttribute="height" multiplier="25:4" id="diq-L3-scn"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="delegate" destination="ZWD-Nb-uwD" id="0V1-YH-pes"/>
+                                            <outlet property="delegate" destination="ZWD-Nb-uwD" id="z8N-S0-5EY"/>
                                         </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Uib-U3-wr4" secondAttribute="bottom" id="4cf-La-xoE"/>
                                     <constraint firstItem="Uib-U3-wr4" firstAttribute="leading" secondItem="hzG-Iq-Bev" secondAttribute="leading" constant="20" id="9dX-k1-ovy"/>
                                     <constraint firstAttribute="trailing" secondItem="Uib-U3-wr4" secondAttribute="trailing" constant="20" id="DNd-zh-fcJ"/>
                                     <constraint firstItem="Uib-U3-wr4" firstAttribute="top" secondItem="ubA-vZ-kja" secondAttribute="bottom" id="FbX-NH-Pio"/>
                                     <constraint firstAttribute="trailing" secondItem="ubA-vZ-kja" secondAttribute="trailing" id="Vtl-4Z-cmt"/>
                                     <constraint firstItem="baQ-tR-h6K" firstAttribute="leading" secondItem="hzG-Iq-Bev" secondAttribute="leading" id="YsO-5W-mXn"/>
                                     <constraint firstAttribute="trailing" secondItem="baQ-tR-h6K" secondAttribute="trailing" id="eSj-Lt-hkn"/>
+                                    <constraint firstItem="baQ-tR-h6K" firstAttribute="top" secondItem="Uib-U3-wr4" secondAttribute="bottom" id="f5i-B9-46n"/>
                                     <constraint firstAttribute="bottom" secondItem="baQ-tR-h6K" secondAttribute="bottom" id="fCB-sn-kul"/>
                                     <constraint firstItem="ubA-vZ-kja" firstAttribute="top" secondItem="hzG-Iq-Bev" secondAttribute="top" constant="20" id="fIr-dc-3gM"/>
                                     <constraint firstItem="ubA-vZ-kja" firstAttribute="leading" secondItem="hzG-Iq-Bev" secondAttribute="leading" id="tFG-5J-PkH"/>
@@ -1101,6 +1112,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
+                        <outlet property="bannerView" destination="baQ-tR-h6K" id="PJY-Ut-3c0"/>
                         <outlet property="randomTableView" destination="Uib-U3-wr4" id="Vq7-oH-km3"/>
                     </connections>
                 </viewController>
@@ -1122,6 +1134,7 @@
         <image name="like-list" width="33.333332061767578" height="33.333332061767578"/>
         <image name="options_home" width="25" height="25"/>
         <image name="options_white" width="25" height="25"/>
+        <image name="refresh" width="33.333332061767578" height="33.333332061767578"/>
         <image name="search" width="20" height="20"/>
         <image name="share-list" width="33.333332061767578" height="33.333332061767578"/>
         <image name="small_quotes" width="70" height="56.666667938232422"/>

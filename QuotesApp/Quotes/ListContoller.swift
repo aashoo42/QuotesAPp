@@ -115,6 +115,16 @@ class ListContoller: UIViewController, UITableViewDelegate, UITableViewDataSourc
             self.getQuotesByCategoryIDApi(pageNumber: pageNumber)
         }
         
+        if UserDefaults.standard.value(forKey: "LikedItems") != nil{
+            let likedArray = UserDefaults.standard.value(forKey: "LikedItems") as! NSArray
+            let newDict = (UIApplication.shared.delegate as! AppDelegate).checkNullValues(tempDict: tempDict)
+            if likedArray.contains(newDict){
+                cell.likeBtn.setImage(UIImage.init(named: "like-list-gray"), for: .normal)
+            }else{
+                cell.likeBtn.setImage(UIImage.init(named: "like-list"), for: .normal)
+            }
+        }
+        
         cell.likeBtn.tag = indexPath.row
         cell.downloadBtn.tag = indexPath.row
         cell.copyBtn.tag = indexPath.row
@@ -134,23 +144,43 @@ class ListContoller: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.quotesTableView.deselectRow(at: indexPath, animated: true)
-//        
-//        let tempDict = quotesArray[indexPath.row] as! NSDictionary
-//        
-//        let objDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailsVC") as! DetailsVC
-//        objDetailsVC.quoteDict = tempDict
-//        self.navigationController?.pushViewController(objDetailsVC, animated: true)
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 350
     }
     
-    // MAR:- Cell button actions
+    // MARK:- Cell button actions
     @objc func likeAction(sender: UIButton){
         print("like action at: \(sender.tag)")
+        
+        let tempDict = quotesArray[sender.tag] as! NSDictionary
+        let dictToSave = (UIApplication.shared.delegate as! AppDelegate).checkNullValues(tempDict: tempDict)
+        
+        if UserDefaults.standard.value(forKey: "LikedItems") == nil{ // firstValue
+            let array = [dictToSave]
+            UserDefaults.standard.setValue(array, forKey: "LikedItems")
+            UserDefaults.standard.synchronize()
+        }else{ // already saved values
+            let alreadyArray = UserDefaults.standard.value(forKey: "LikedItems") as! NSArray
+            let cellIndexPath = IndexPath.init(row: sender.tag, section: 0)
+            let newArray = NSMutableArray()
+            
+            if alreadyArray.contains(dictToSave){
+                // remove saved item
+                newArray.remove(dictToSave)
+                let cell = quotesTableView.cellForRow(at: cellIndexPath) as! ListCell
+                cell.likeBtn.setImage(UIImage.init(named: "like-list"), for: .normal)
+            }else{
+                // add new item
+                newArray.addObjects(from: alreadyArray as! [Any])
+                newArray.add(dictToSave)
+                let cell = quotesTableView.cellForRow(at: cellIndexPath) as! ListCell
+                cell.likeBtn.setImage(UIImage.init(named: "like-list-gray"), for: .normal)
+            }
+            UserDefaults.standard.setValue(newArray, forKey: "LikedItems")
+            UserDefaults.standard.synchronize()
+        }
     }
     
     @objc func downloadAction(sender: UIButton){
