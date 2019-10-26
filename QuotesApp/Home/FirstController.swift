@@ -110,9 +110,9 @@ class FirstController: UIViewController, UICollectionViewDelegate, UICollectionV
         tableView.deselectRow(at: indexPath, animated: true)
         
         if indexPath.row == 0{ // Favorite Quotes
-            
+            self.openFavQuotesVC()
         }else if indexPath.row == 1{ // Random Quotes
-            
+            self.openRandomQuotesVC()
         }else if indexPath.row == 2{ // Rate Our App
             self.autoReviewWithinApp()
         }else if indexPath.row == 3{ // Share with Friends
@@ -212,6 +212,16 @@ class FirstController: UIViewController, UICollectionViewDelegate, UICollectionV
         UIApplication.shared.open(url)
     }
     
+    func openFavQuotesVC(){
+        let objFavQuotesVC = self.storyboard?.instantiateViewController(withIdentifier: "FavQuotesVC") as! FavQuotesVC
+        self.navigationController?.pushViewController(objFavQuotesVC, animated: true)
+    }
+    
+    func openRandomQuotesVC(){
+        let objRandomQuotesVC = self.storyboard?.instantiateViewController(withIdentifier: "RandomQuotesVC") as! RandomQuotesVC
+        self.navigationController?.pushViewController(objRandomQuotesVC, animated: true)
+    }
+    
 }
 
 
@@ -219,3 +229,4 @@ let BASE_URL = "http://www.apiqoutes.somee.com/qoutesapp/"
 let IMAGE_URL = "http://www.apiqoutes.somee.com"
 
 let CATEGORIES_API = "Categories"
+let RANDOM_QUOTE_API = "randomqoutes"

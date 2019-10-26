@@ -16,6 +16,10 @@
 		6D0E33E923004B780072698C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D0E33E823004B780072698C /* GoogleService-Info.plist */; };
 		6D6DA93C235A225E0060ABDD /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6DA93B235A225E0060ABDD /* CategoryCell.swift */; };
 		6D89ECA2232B5A73005BD1C6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D89ECA1232B5A73005BD1C6 /* AVFoundation.framework */; };
+		6DA7E7EA2364168D006B1E74 /* FavCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA7E7E92364168D006B1E74 /* FavCell.swift */; };
+		6DA7E7EC23641A9D006B1E74 /* RandomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA7E7EB23641A9D006B1E74 /* RandomCell.swift */; };
+		6DAC9B83235B7354004A4067 /* FavQuotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAC9B82235B7354004A4067 /* FavQuotesVC.swift */; };
+		6DAC9B86235B73C5004A4067 /* RandomQuotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAC9B85235B73C5004A4067 /* RandomQuotesVC.swift */; };
 		6DC97D682307CA0800094A8A /* FirstController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC97D672307CA0800094A8A /* FirstController.swift */; };
 		6DFDA6D2230084E4004DD4A0 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFDA6D1230084E4004DD4A0 /* DetailsVC.swift */; };
 		7F9DA3ACB633A61A997833B6 /* Pods_QuotesApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D695CD65CDDF823CAE1208F /* Pods_QuotesApp.framework */; };
@@ -34,6 +38,10 @@
 		6D695CD65CDDF823CAE1208F /* Pods_QuotesApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuotesApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D6DA93B235A225E0060ABDD /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		6D89ECA1232B5A73005BD1C6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6DA7E7E92364168D006B1E74 /* FavCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavCell.swift; sourceTree = "<group>"; };
+		6DA7E7EB23641A9D006B1E74 /* RandomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCell.swift; sourceTree = "<group>"; };
+		6DAC9B82235B7354004A4067 /* FavQuotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavQuotesVC.swift; sourceTree = "<group>"; };
+		6DAC9B85235B73C5004A4067 /* RandomQuotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomQuotesVC.swift; sourceTree = "<group>"; };
 		6DC97D672307CA0800094A8A /* FirstController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstController.swift; sourceTree = "<group>"; };
 		6DFDA6D1230084E4004DD4A0 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		A3CB01A36DB51EC24287FB95 /* Pods-QuotesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuotesApp.debug.xcconfig"; path = "Target Support Files/Pods-QuotesApp/Pods-QuotesApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -84,10 +92,10 @@
 			isa = PBXGroup;
 			children = (
 				6D0E33D4230049540072698C /* AppDelegate.swift */,
-				6DC97D672307CA0800094A8A /* FirstController.swift */,
-				6D6DA93B235A225E0060ABDD /* CategoryCell.swift */,
-				6D0E33D6230049540072698C /* ListContoller.swift */,
-				6D0E33E6230049FB0072698C /* ListCell.swift */,
+				6DAC9B7F235B7309004A4067 /* Home */,
+				6DAC9B80235B731A004A4067 /* Quotes */,
+				6DAC9B81235B7331004A4067 /* FavQuotes */,
+				6DAC9B84235B73B1004A4067 /* Random */,
 				6DFDA6D1230084E4004DD4A0 /* DetailsVC.swift */,
 				6D0E33D8230049540072698C /* Main.storyboard */,
 				6D0E33DB230049560072698C /* Assets.xcassets */,
@@ -96,6 +104,42 @@
 				6D0E33E823004B780072698C /* GoogleService-Info.plist */,
 			);
 			path = QuotesApp;
+			sourceTree = "<group>";
+		};
+		6DAC9B7F235B7309004A4067 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6DC97D672307CA0800094A8A /* FirstController.swift */,
+				6D6DA93B235A225E0060ABDD /* CategoryCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		6DAC9B80235B731A004A4067 /* Quotes */ = {
+			isa = PBXGroup;
+			children = (
+				6D0E33D6230049540072698C /* ListContoller.swift */,
+				6D0E33E6230049FB0072698C /* ListCell.swift */,
+			);
+			path = Quotes;
+			sourceTree = "<group>";
+		};
+		6DAC9B81235B7331004A4067 /* FavQuotes */ = {
+			isa = PBXGroup;
+			children = (
+				6DAC9B82235B7354004A4067 /* FavQuotesVC.swift */,
+				6DA7E7E92364168D006B1E74 /* FavCell.swift */,
+			);
+			path = FavQuotes;
+			sourceTree = "<group>";
+		};
+		6DAC9B84235B73B1004A4067 /* Random */ = {
+			isa = PBXGroup;
+			children = (
+				6DAC9B85235B73C5004A4067 /* RandomQuotesVC.swift */,
+				6DA7E7EB23641A9D006B1E74 /* RandomCell.swift */,
+			);
+			path = Random;
 			sourceTree = "<group>";
 		};
 		B74B24BAAC8FC1674B528FF6 /* Pods */ = {
@@ -224,10 +268,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D0E33E7230049FB0072698C /* ListCell.swift in Sources */,
+				6DA7E7EA2364168D006B1E74 /* FavCell.swift in Sources */,
+				6DA7E7EC23641A9D006B1E74 /* RandomCell.swift in Sources */,
 				6DFDA6D2230084E4004DD4A0 /* DetailsVC.swift in Sources */,
+				6DAC9B86235B73C5004A4067 /* RandomQuotesVC.swift in Sources */,
 				6DC97D682307CA0800094A8A /* FirstController.swift in Sources */,
 				6D0E33D7230049540072698C /* ListContoller.swift in Sources */,
 				6D0E33D5230049540072698C /* AppDelegate.swift in Sources */,
+				6DAC9B83235B7354004A4067 /* FavQuotesVC.swift in Sources */,
 				6D6DA93C235A225E0060ABDD /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
