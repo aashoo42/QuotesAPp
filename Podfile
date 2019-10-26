@@ -19,6 +19,7 @@ pod 'Google-Mobile-Ads-SDK'
 
 pod 'Alamofire'
 pod 'AlamofireImage'
+pod 'Toast-Swift', '~> 5.0.0'
 #pod 'FontAwesome'
 
 end

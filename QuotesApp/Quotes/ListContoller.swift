@@ -16,6 +16,8 @@ class ListContoller: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var titleLbl: UILabel!
     
+    var interstitial: GADInterstitial!
+    
     var quoteDict = NSDictionary()
     var quotesArray = NSMutableArray()
     
@@ -31,10 +33,16 @@ class ListContoller: UIViewController, UITableViewDelegate, UITableViewDataSourc
         self.title = quoteType
         self.showLoader()
         
-        bannerView.adUnitID = AdsIDS.bannerTest
+        // banner settings
+        bannerView.adUnitID = AdsIDS.bannerLive
         bannerView.rootViewController = self
         bannerView.delegate = self
         bannerView.load(GADRequest())
+        
+        // interstitial settings
+        interstitial = GADInterstitial(adUnitID: AdsIDS.interstitialLive)
+        let request = GADRequest()
+        interstitial.load(request)
         
         self.titleLbl.text = "\(quoteDict["Name"] as? String ?? "Quotes") Quotes"
         
@@ -184,15 +192,57 @@ class ListContoller: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     @objc func downloadAction(sender: UIButton){
-        print("download action at: \(sender.tag)")
+        if interstitial.isReady{
+            interstitial.present(fromRootViewController: self)
+        }else{
+            let cell = self.quotesTableView.cellForRow(at: IndexPath.init(row: sender.tag, section: 0)) as! ListCell
+            let size = CGSize.init(width: cell.frame.width, height: cell.topView.frame.height)
+            UIGraphicsBeginImageContextWithOptions(size, cell.contentView.isOpaque, 0.0)
+            cell.contentView.drawHierarchy(in: cell.contentView.bounds, afterScreenUpdates: false)
+            let snapshotImageFromMyView = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            UIImageWriteToSavedPhotosAlbum(snapshotImageFromMyView!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        }
     }
     
+    //MARK: - Add image to Library
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            // we got back an error!
+            let ac = UIAlertController(title: "There is some error occured while saving your quote image", message: error.localizedDescription, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Try Again!", style: .default))
+            present(ac, animated: true)
+        } else {
+            let ac = UIAlertController(title: "Saved!", message: "Your quote image has been saved to your photos.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        }
+    }
+
+    
     @objc func copyAction(sender: UIButton){
-        print("copy action at: \(sender.tag)")
+        if interstitial.isReady{
+            interstitial.present(fromRootViewController: self)
+        }else{
+            let toCopy = (quotesArray[sender.tag] as! NSDictionary)["Description"] as! String
+            UIPasteboard.general.string = toCopy
+            self.view.makeToast("Copied", duration: 1.0, position: .bottom)
+        }
     }
     
     @objc func shareAction(sender: UIButton){
-        print("share action at: \(sender.tag)")
+        if interstitial.isReady{
+            interstitial.present(fromRootViewController: self)
+        }else{
+            let toShare = (quotesArray[sender.tag] as! NSDictionary)["Description"] as! String
+            let appURL = "https://itunes.apple.com/app/id1476205913"
+            let message = "\(toShare)\n\(appURL)"
+            
+            let messageToShare = [ message ]
+            let activityViewController = UIActivityViewController(activityItems: messageToShare , applicationActivities: nil)
+            self.present(activityViewController, animated: true, completion: nil)
+        }
     }
 }
 

@@ -31,7 +31,7 @@ class DetailsVC: UIViewController {
         
         (UIApplication.shared.delegate as! AppDelegate).autoReviewWithinApp()
         
-        interstitial = GADInterstitial(adUnitID: AdsIDS.interstitialTest)
+        interstitial = GADInterstitial(adUnitID: AdsIDS.interstitialLive)
         let request = GADRequest()
         interstitial.load(request)
     }

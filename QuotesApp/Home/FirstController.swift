@@ -19,6 +19,8 @@ class FirstController: UIViewController, UICollectionViewDelegate, UICollectionV
     @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var optionsView: UIView!
     
+    var interstitial: GADInterstitial!
+    
     var categoryArray = NSArray()
     var optionsArray = ["Favorite Quotes",
                         "Random Quotes",
@@ -31,10 +33,16 @@ class FirstController: UIViewController, UICollectionViewDelegate, UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bannerView.adUnitID = AdsIDS.bannerTest
+        // banner settings
+        bannerView.adUnitID = AdsIDS.bannerLive
         bannerView.rootViewController = self
         bannerView.delegate = self
         bannerView.load(GADRequest())
+        
+        // interstitial settings
+        interstitial = GADInterstitial(adUnitID: AdsIDS.interstitialLive)
+        let request = GADRequest()
+        interstitial.load(request)
         
         bannerView.isHidden = true
         optionsView.isHidden = true
@@ -165,7 +173,11 @@ class FirstController: UIViewController, UICollectionViewDelegate, UICollectionV
     
     // MARK:- IBAction
     @IBAction func optionsAction(_ sender: UIButton) {
-        optionsView.isHidden = !optionsView.isHidden
+        if interstitial.isReady{
+            interstitial.present(fromRootViewController: self)
+        }else{
+            optionsView.isHidden = !optionsView.isHidden
+        }
     }
     
     // MAKR:- GADBannerViewDelegate
